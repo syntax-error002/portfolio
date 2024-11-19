@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaswat Kureel - Resume</title>
+    <style>
+        :root {
+            --primary-dark: #004D40;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --background-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--background-light);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            background: var(--background-light);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .profile-title {
+            font-size: 16px;
+            color: #b0bec5;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .details {
+            margin-bottom: 30px;
+        }
+
+        .details p {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: #80cbc4;
+            border-radius: 2px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+        }
+
+        .profile-section {
+            margin-bottom: 40px;
+        }
+
+        .profile-section p {
+            color: var(--text-dark);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .section-heading {
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-dark);
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: var(--primary-dark);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .experience-date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .experience-description {
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 12px 25px;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                min-height: auto;
+            }
+        }
+
+        /* Mobile-First Media Queries */
+        @media screen and (max-width: 1024px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+                gap: 0;
+                box-shadow: none;
+            }
+
+            .sidebar {
+                min-height: auto;
+                border-radius: 15px 15px 0 0;
+                padding: 30px 20px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            body {
+                padding: 0;
+                background: #f5f5f5;
+            }
+
+            /* Improved Mobile Navigation */
+            .mobile-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 15px;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: space-around;
+                z-index: 1000;
+            }
+
+            .nav-item {
+                text-align: center;
+                color: var(--text-dark);
+                text-decoration: none;
+                font-size: 12px;
+            }
+
+            .nav-item i {
+                display: block;
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+
+            /* Skill Bars Enhancement */
+            .skills-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 15px;
+            }
+
+            .skills-list li {
+                background: rgba(255, 255, 255, 0.1);
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            /* Section Improvements */
+            .section-heading {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .experience-item {
+                background: white;
+                padding: 15px;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            }
+
+            .experience-title {
+                font-size: 16px;
+            }
+
+            .experience-company {
+                font-size: 14px;
+            }
+
+            .experience-date {
+                font-size: 12px;
+            }
+
+            .experience-description {
+                font-size: 14px;
+            }
+
+            /* Download Button Adjustment */
+            .download-btn {
+                position: fixed;
+                bottom: 80px; /* Adjusted to account for mobile navigation */
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 14px;
+                z-index: 999;
+            }
+
+            /* Profile Section */
+            .profile-section p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            /* Details Section */
+            .details p {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            .details p i {
+                font-size: 16px;
+            }
+
+            /* Internship List */
+            .internships-section ul {
+                padding-left: 20px;
+            }
+
+            .internships-section li {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Small Screen Optimizations */
+        @media screen and (max-width: 480px) {
+            .profile-name {
+                font-size: 20px;
+            }
+
+            .profile-title {
+                font-size: 14px;
+            }
+
+            .skills-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            body {
+                font-size: 14px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .download-btn,
+            .mobile-nav {
+                display: none;
+            }
+
+            .resume-container {
+                box-shadow: none;
+            }
+
+            body {
+                padding: 0;
+            }
+
+            .sidebar,
+            .main-content {
+                padding: 20px;
+            }
+        }
+
+        /* Additional Styles */
+        .cert-list, .lang-list, .achievement-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .cert-list li, .lang-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .project-details, .experience-details {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .project-details li, .experience-details li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .project-details li:before, .experience-details li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-dark);
+        }
+
+        .achievement-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .achievement-list li:before {
+            content: "🏆";
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-list small {
+            display: block;
+            font-size: 12px;
+            color: #b0bec5;
+            margin-top: 5px;
+        }
+
+        /* Unique Styling Elements */
+
+        /* Timeline Styling */
+        .coding-journey {
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-dark), var(--accent));
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            padding-right: 0;
+            padding-left: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -6px;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 51, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0); }
+        }
+
+        /* Tech Radar Styling */
+        .tech-radar {
+            padding: 30px 0;
+        }
+
+        .radar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .radar-level {
+            width: 100%;
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .radar-level:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-bubble {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            background: var(--primary-dark);
+            color: white;
+            font-size: 14px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Project Showcase Styling */
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .browser-mockup {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .browser-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .browser-buttons span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-buttons span:nth-child(1) { background: #ff5f56; }
+        .browser-buttons span:nth-child(2) { background: #ffbd2e; }
+        .browser-buttons span:nth-child(3) { background: #27c93f; }
+
+        .project-stats {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Blinking Cursor Animation */
+        .blink {
+            animation: blink 1s step-end infinite;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Interactive Elements */
+        .tech-bubble:hover {
+            transform: scale(1.1);
+            background: var(--accent);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 0;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 30px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                padding-left: 30px;
+            }
+            
+            .timeline-dot {
+                left: -6px;
+                right: auto;
+            }
+        }
+
+        /* Desktop Navigation Styles */
+        .desktop-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent) 100%);
+            
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover i {
+            transform: translateY(-2px);
+        }
+
+        .nav-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover .nav-indicator {
+            width: 80%;
+        }
+
+        .nav-item.active .nav-indicator {
+            width: 80%;
+        }
+
+        .contact-btn {
+            background: var(--accent);
+            color: white;
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+        }
+
+        /* Scroll Effect */
+        .desktop-nav.scrolled {
+            padding: 0.3rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Active State */
+        .nav-item.active {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-nav {
+                display: none;
+            }
+            
+            .desktop-nav {
+                display: block;
+            }
+        }
+
+        /* Back Button Styles */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 12px 25px;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1001;
+            text-decoration: none;
+        }
+
+        .back-btn i {
+            font-size: 14px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Adjust for mobile */
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 20px;
+                left: 20px;
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+
+        /* Hide back button when printing */
+        @media print {
+            .back-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="sidebar">
+            <h1 class="profile-name">Shaswat Kureel</h1>
+            <p class="profile-title">INTERN</p>
+
+            <div class="details">
+                <h2 class="section-title">Details</h2>
+                <p><i class="fas fa-envelope"></i>kureelshaswat1@gmail.com</p>
+                <p><i class="fas fa-globe"></i> Portfolio: shaswatkureel.dev</p>
+                <p><i class="fab fa-github"></i> </p>
+                <p><i class="fab fa-linkedin"></i> linkedin.com/in/shaswatkureel</p>
+            </div>
+
+            <div class="certifications">
+                <h2 class="section-title">Certifications</h2>
+                <ul class="cert-list">
+                    <li>Web Development Bootcamp - Udemy</li>
+                    <li>JavaScript Algorithms - freeCodeCamp</li>
+                    <li>React.js Essential Training - LinkedIn</li>
+                    <li>Git & GitHub Fundamentals - GitHub</li>
+                    <li>Introduction to Cybersecurity - Coursera</li>
+                    <li>10+ GUided Projects - Top Leading hubs</li>
+                </ul>
+            </div>
+
+            <div class="skills">
+                <h2 class="section-title">Technical Skills</h2>
+                <ul class="skills-list">
+                    <li>
+                        Frontend Development
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                        <small>React.js, HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, Material UI</small>
+                    </li>
+                    
+                    <li>
+                        Backend Development
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 45%"></div>
+                        </div>
+                        <small>Node.js, Express,</small>
+                    </li>
+                    
+                    <li>
+                        Development Tools
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                        <small>Git, VS Code, Postman, npm</small>
+                    </li>
+                    <li></li>
+                        Programming Languages
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%"></div>
+                        </div>
+                        <small>JavaScript, Java, c++, c</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="languages">
+                <h2 class="section-title">Languages</h2>
+                <ul class="lang-list">
+                    <li>English (Professional)</li>
+                    <li>Hindi (Native)</li>
+                    <li>Gujarati </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-section">
+                <h2 class="section-heading">Professional Summary</h2>
+                <p>Innovative and detail-oriented Computer Engineering student with hands-on experience in full-stack web development. Demonstrated expertise in building responsive web applications using modern JavaScript frameworks. Proven track record of delivering high-quality projects within deadlines. Passionate about creating efficient, scalable solutions and staying current with emerging technologies.</p>
+            </div>
+
+            <div class="projects-section">
+                <h2 class="section-heading">Over 10+ Projects and Below are the master piece</h2>
+                
+                <div class="experience-item">
+                    <h3 class="experience-title">E-Commerce Platform</h3>
+                    <p class="experience-date">2024</p>
+                    <ul class="project-details">
+                        <li>Developed a full-stack e-commerce platform using my own skills at the age of 17</li>
+                        <li>Implemented secure user authentication and payment gateway integration</li>
+                        <li>Achieved 30% improvement in page load times through optimization techniques</li>
+                    <li>
+                        JavaScript
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%"></div>
+                        </div>
+                    </li>
+                    <li>
+                      HTML/CSS
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        React
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 60%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        Machine Learning
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        Presentation
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        Problem solving
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </li>
+                </ul>
+                <p> Check all my projects on my portfolio that i have made during my free time </p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-section">
+                <h2 class="section-heading">Profile</h2>
+                <p>Dynamic Computer Engineering intern with a passion for Web development and a strong foundation in full-stack technologies. Skilled in HTML/CSS, with a drive for problem-solving and advanced coding concepts. Currently pursuing B.E in Computer Engineering. Recognized with scholarship recipient for academic excellence. Eager to explore the Machine Learning space.</p>
+            </div>
+
+            <div class="experience-section">
+                <h2 class="section-heading">Employment History</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">Intern, Code alpha</h3>
+                    <p class="experience-company">CODE ALPHA</p>
+                    <p class="experience-date">NOVEMBER 2024 — DECEMBER 2024</p>
+                    <p class="experience-description">During my internship at Code alpha, I gained hands-on experience in various projects, honing my skills in web development and collaborating with a team. This opportunity allowed me to apply my knowledge to real-world projects and further develop my expertise in the field.</p>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <h2 class="section-heading">Education</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">Bachelor's Degree in Computer Engineering</h3>
+                    <p class="experience-company">UPL University</p>
+                    <p class="experience-date">SEPTEMBER 2023 — PRESENT</p>
+                    <p>I am currently in 1st year of my college and i am learning many things from my college and i am also learning many things from the internet</p>
+                </div>
+                <h3>Schooling</h3>
+                <div class="experience-item"></div>
+                    <h3 class="experience-title">High School</h3>
+                    <p class="experience-company">J.N.V
+                        [Jawahar Navodaya Vidhyalaya]
+                    </p>
+                    <p class="experience-date">6th to 12th</p>
+                        <p>Cleared district level entrance exam and got admission in Jawahar Navodaya Vidhyalaya</p>
+                </div>
+
+            </div>
+            <div class="Education-section">
+                <h2 class="section-heading">Exams cleared</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">JEE Mains</h3>
+                    <p class="experience-date">Cleared</p>
+                    <p>Cleared JEE Mains with decent percentile</p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">IISER APTITUDE TEST</h3>
+                    <p class="experience-date">Cleared</p>
+                    <p>Cleared I.A.T</p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">GUJCAT</h3>
+                    <p class="experience-date">Cleared</p>
+                    <p>Engineering Entrance Exam</p>
+                </div>
+            </div>
+
+            <div class="internships-section">
+                <h2 class="section-heading">Internships</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">CODE ALPHA, Intern</h3>
+                    <p class="experience-date">NOVEMBER 2023 — DECEMBER 2024</p>
+                    <ul>
+                        <li>During this internship I learn many things like how to work in team and knowledge about real world projects</li>
+                        <li>Gained hands-on experience in frontend development by working on projects and implementing interactive user interfaces</li>
+                        <li>Effectively delivered tasks and collaborated with team members to achieve objectives within deadlines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="download-btn" onclick="window.print()">Download PDF</button>
+
+    <nav class="mobile-nav">
+        <a href="#profile" class="nav-item">
+            <i class="fas fa-user"></i>
+            Profile
+        </a>
+        <a href="#experience" class="nav-item">
+            <i class="fas fa-briefcase"></i>
+            Experience
+        </a>
+        <a href="#education" class="nav-item">
+            <i class="fas fa-graduation-cap"></i>
+            Education
+        </a>
+        <a href="#skills" class="nav-item">
+            <i class="fas fa-code"></i>
+            Skills
+        </a>
+    </nav>
+
+    <nav class="desktop-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">
+                    <span class="logo-text">Shaswat</span>
+                    <span class="logo-dot"></span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="#profile" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#experience" class="nav-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Experience</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#education" class="nav-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#skills" class="nav-item">
+                    <i class="fas fa-code"></i>
+                    <span>Skills</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#contact" class="nav-item contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+         Check my portfolio
+    </a>
+
+    <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const section = document.querySelector(this.getAttribute('href'));
+            section.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Add IDs to sections
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.profile-section').id = 'profile';
+        document.querySelector('.experience-section').id = 'experience';
+        document.querySelector('.education-section').id = 'education';
+        document.querySelector('.skills').id = 'skills';
+    });
+
+    // Add this to your existing JavaScript
+    document.addEventListener('DOMContentLoaded', function() {
+        // Highlight active section in navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Navigation scroll effect
+        const nav = document.querySelector('.desktop-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    });
+    </script>
+</body>
+</html> 

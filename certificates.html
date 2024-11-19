@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaswat | Certificates & Projects</title>
+    <style>
+        /* Core Styles - Keep the same as main page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --primary: #2A2A2A;
+            --accent: #FF3366;
+            --light: #F5F5F5;
+            --gray: #888888;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Navigation Styles - Keep the same as main page */
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        /* Logo Styles */
+        .logo {
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-left: 2px;
+            display: inline-block;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Scroll Effect */
+        .nav.scrolled {
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                transition: right 0.3s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* Mobile Menu Button Animation */
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+
+        /* Enhanced Hero Section */
+        .certificates-hero {
+            padding: 150px 5% 80px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificates-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h1v1H0z" fill="%2300000005"/></svg>');
+            opacity: 0.5;
+        }
+
+        .certificates-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+        }
+
+        .certificates-hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Improved Filter Section */
+        .filter-section {
+            padding: 30px 5%;
+            background: white;
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-button {
+            padding: 10px 25px;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            background: var(--light);
+            color: var(--primary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .filter-button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .filter-button.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+        }
+
+        /* Enhanced Certificate Cards */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            padding: 60px 5%;
+            background: linear-gradient(to bottom, #ffffff 0%, var(--light) 100%);
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .certificate-content {
+            padding: 25px;
+        }
+
+        .certificate-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .certificate-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .certificate-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+
+        .certificate-issuer {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.95rem;
+        }
+
+        .certificate-date {
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .view-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(255, 51, 102, 0.2);
+        }
+
+        .view-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 51, 102, 0.3);
+            background: #ff1f57;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .certificates-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .certificates-hero p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .certificates-grid {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+                gap: 30px;
+            }
+            
+            .filter-section {
+                padding: 20px;
+                overflow-x: auto;
+                justify-content: start;
+            }
+            
+            .filter-button {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animation for Cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .certificate-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Loading State */
+        .certificate-card.loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-card.loading::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Updated Navigation HTML -->
+    <nav class="nav">
+        <a href="index.html" class="logo">
+            <span class="logo-text">Back</span>
+            <span class="logo-dot"></span>
+        </a>
+        
+        <div class="nav-links">
+            <a href="ok.html" class="nav-link">Home</a>
+            <a href="ok.html" class="nav-link">Experience</a>
+            <a href="ok.html" class="nav-link">Skills</a>
+            <a href="certificates.html" class="nav-link active">Certificates</a>
+            <a href="ok.html" class="nav-link">Contact</a>
+        </div>
+
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <section class="certificates-hero">
+        <h1>My Certificates & Achievements</h1>
+        <p>A collection of my professional certifications and project completions</p>
+    </section>
+
+    <div class="filter-section">
+        <button class="filter-button active">All</button>
+        <button class="filter-button">Web Development</button>
+        <button class="filter-button">AI/ML</button>
+        <button class="filter-button">Programming</button>
+        <button class="filter-button">Design</button>
+    </div>
+
+    <div class="certificates-grid">
+        <!-- Certificate 1 -->
+        <div class="certificate-card">
+            <img src="https://img.freepik.com/premium-vector/tictactoe-competition-seamless-pattern-hand-drawn-stock-vector-illustration_985641-1624.jpg?ga=GA1.1.435110998.1724427298&semt=ais_hybrid" alt="Web Development Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <h3>Full Stack Web Development</h3>
+                <p>Comprehensive course covering modern web development technologies including React, Node.js, and MongoDB.</p>
+                <div class="certificate-meta">
+                    <span class="certificate-issuer">Udemy</span>
+                    <span class="certificate-date">2024</span>
+                </div>
+                <a href="#" class="view-button">View Certificate</a>
+            </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="certificate-card">
+            <img src="https://img.freepik.com/premium-vector/tictactoe-competition-seamless-pattern-hand-drawn-stock-vector-illustration_985641-1624.jpg?ga=GA1.1.435110998.1724427298&semt=ais_hybrid" alt="AI Certificate" class="certificate-image">
+            <div class="certificate-content">
+                <h3>AI Fundamentals</h3>
+                <p>Introduction to artificial intelligence, machine learning, and deep learning concepts.</p>
+                <div class="certificate-meta">
+                    <span class="certificate-issuer">Coursera</span>
+                    <span class="certificate-date">2023</span>
+                </div>
+                <a href="#" class="view-button">View Certificate</a>
+            </div>
+        </div>
+
+        <!-- Add more certificate cards as needed -->
+    </div>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-button');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                console.log(button.textContent);
+                 
+                
+                // Add your filter logic here
+                // For example, you can filter the certificates based on categories
+            });
+        });
+    </script>
+</body>
+</html> 
